@@ -25,3 +25,5 @@ export const dark: Theme = {
         third: 'darkgreen'
     }
 };
+
+export const getTheme = (themeName: ThemeName) => themeName === "light" ? light : dark;
