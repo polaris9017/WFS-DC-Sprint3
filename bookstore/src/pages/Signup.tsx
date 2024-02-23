@@ -56,7 +56,7 @@ function Signup() {
                         </Button>
                     </fieldset>
                     <div className="info">
-                        <Link to="/reset">비밀번호 초기화</Link>
+                        <Link to="/reset-password">비밀번호 초기화</Link>
                     </div>
                 </form>
             </SignupStyle>
@@ -64,7 +64,7 @@ function Signup() {
     );
 }
 
-const SignupStyle = styled.div`
+export const SignupStyle = styled.div`
     max-width: ${({theme}) => theme.layout.small};
     margin: 80px auto;
 
