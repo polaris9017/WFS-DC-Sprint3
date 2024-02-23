@@ -1,4 +1,5 @@
 import axios, {AxiosRequestConfig} from 'axios';
+import {getToken, removeToken} from "../store/authStore";
 
 const BASE_URL = 'http://localhost:8081';
 const DEFAULT_TIMEOUT = 30000;
@@ -8,7 +9,8 @@ export const createClient = (config?: AxiosRequestConfig) => {
         baseURL: BASE_URL,
         timeout: DEFAULT_TIMEOUT,
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: getToken() ? getToken() : ""
         },
         withCredentials: true,
         ...config
@@ -19,6 +21,11 @@ export const createClient = (config?: AxiosRequestConfig) => {
             return response;
         },
         (error) => {
+            if(error.response?.status === 401) {  // 로그인 만료 시 처리
+                removeToken();
+                window.location.href = "/login";
+                return;
+            }
             return Promise.reject(error);
         }
     );
