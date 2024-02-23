@@ -5,7 +5,8 @@ import {Link} from "react-router-dom";
 import {useCategory} from "../../hooks/useCategory";
 
 function Header() {
-    const {category} = useCategory();
+    // 개발 중 서버를 올리지 않는 관계로 임시 주석 처리. 최종 단계에서 주석 해제
+    /*const {category} = useCategory();*/
 
     return (
         <HeaderStyle>
@@ -16,7 +17,7 @@ function Header() {
             </h1>
             <nav className="category">
                 <ul>
-                    {
+                    {/*{    // 개발 중 서버를 올리지 않는 관계로 임시 주석 처리. 최종 단계에서 주석 해제
                         category.map((item) => (
                             <li key={item.id}>
                                 <Link to={item.id === null ? `/books` : `/books?cat=${item.id}`}>
@@ -24,7 +25,10 @@ function Header() {
                                 </Link>
                             </li>
                         ))
-                    }
+                    }*/}
+                    <li>
+                        <Link to="/books">전체</Link>
+                    </li>
                 </ul>
             </nav>
             <nav className="auth">
