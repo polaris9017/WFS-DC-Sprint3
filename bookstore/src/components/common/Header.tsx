@@ -1,6 +1,7 @@
 import {styled} from "styled-components";
 import logo from "../../assets/image/logo.png";
 import {FaSignInAlt, FaRegUser} from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const Category = [
     {id: null, name: "전체"},
@@ -13,16 +14,18 @@ function Header() {
     return (
         <HeaderStyle>
             <h1 className="logo">
-                <img src={logo} alt="Bookstore"/>
+                <Link to="/">
+                    <img src={logo} alt="Bookstore"/>
+                </Link>
             </h1>
             <nav className="category">
                 <ul>
                     {
                         Category.map((category) => (
                             <li key={category.id}>
-                                <a href={category.id === null ? `/books` : `/books?cat=${category.id}`}>
+                                <Link to={category.id === null ? `/books` : `/books?cat=${category.id}`}>
                                     {category.name}
-                                </a>
+                                </Link>
                             </li>
                         ))
                     }
@@ -31,14 +34,14 @@ function Header() {
             <nav className="auth">
                 <ul>
                     <li>
-                        <a href="/signin">
+                        <Link to="/signin">
                             <FaSignInAlt/> 로그인
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/signup">
+                        <Link to="/signup">
                             <FaRegUser/>회원가입
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>
