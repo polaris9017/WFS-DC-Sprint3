@@ -5,7 +5,6 @@ import {BookStoreThemeProvider} from "./context/themeContext";
 import {RouterProvider} from "react-router-dom";
 import {router} from "./router/router";
 
-
 function App() {
     return (
         <BookStoreThemeProvider>

@@ -1,0 +1,1 @@
+export const getImageSrc = (id: number) => `https://picsum.photos/id/${id}/600/600`;
