@@ -1,5 +1,5 @@
 export const queryString = {
-    CATEGORY_ID: 'catID',
+    CATEGORY_ID: 'category',
     IS_NEW: 'isNew',
     PAGE: 'currentPage',
     LIMIT: 'limit',
