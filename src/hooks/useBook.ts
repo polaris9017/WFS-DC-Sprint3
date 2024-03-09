@@ -9,7 +9,7 @@ export const useBook = (bookId: string | undefined) => {
     const [book, setBook] = useState<BookDetail | null>(null);
     const [isCartAdded, setIsCartAdded] = useState<boolean>(false);
     const {isSignedIn} = useAuthStore();
-    const showAlert = useAlert();
+    const {showAlert} = useAlert();
 
     const toggleLike = () => {
         // 권한 확인
@@ -34,7 +34,7 @@ export const useBook = (bookId: string | undefined) => {
     const addToCart = (amount: number) => {
         if (!book) return;
 
-        addCart({book_id: book.id, amount: amount}).then(() => {
+        addCart({id: book.id, amount: amount}).then(() => {
             setIsCartAdded(true);
             setTimeout(() => setIsCartAdded(false), 3000);
         })

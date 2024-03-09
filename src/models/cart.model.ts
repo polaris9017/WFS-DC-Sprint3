@@ -1,6 +1,6 @@
 export interface Cart {
+    cartId: number;
     id: number;
-    book_id: number;
     title: string;
     summary: string;
     amount: number;
