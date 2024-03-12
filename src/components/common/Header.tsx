@@ -41,7 +41,7 @@ function Header() {
                             <Link to='/cart'>장바구니</Link>
                         </li>
                         <li>
-                            <Link to='/orderlist'>주문 내역</Link>
+                            <Link to='/order/list'>주문 내역</Link>
                         </li>
                         <li>
                             <button onClick={storeSignOut}>로그아웃</button>

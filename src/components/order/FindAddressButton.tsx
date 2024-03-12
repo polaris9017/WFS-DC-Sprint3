@@ -10,11 +10,6 @@ const SCRIPT_URL = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.j
 
 function FindAddressButton({onComplete}: Props) {
 
-    // load script
-
-    // add handler
-
-    // input
     const handleOpen = () => {
         new window.daum.Postcode({
             oncomplete: (data: any) => {
@@ -41,6 +36,5 @@ function FindAddressButton({onComplete}: Props) {
     );
 }
 
-const FindAddressButtonStyle = styled.div``;
 
 export default FindAddressButton;
