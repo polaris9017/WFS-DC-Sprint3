@@ -26,9 +26,10 @@
     "zustand": "^4.5.1"
   },
   "scripts": {
-    "start": "react-scripts start WATCHPACK_POLLING=true",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start-react": "react-scripts start WATCHPACK_POLLING=true",
+    "start": "craco start WATCHPACK_POLLING=true",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "typecheck": "tsc --noEmit --skipLibCheck"
   },
@@ -49,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "craco-alias": "^3.0.1"
   }
 }
