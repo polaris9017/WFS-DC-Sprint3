@@ -21,7 +21,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
             return response;
         },
         (error) => {
-            if(error.response?.status === 401) {  // 로그인 만료 시 처리
+            if (error.response?.status === 401) {  // 로그인 만료 시 처리
                 removeToken();
                 window.location.href = "/login";
                 return;
@@ -34,3 +34,28 @@ export const createClient = (config?: AxiosRequestConfig) => {
 }
 
 export const httpClient = createClient();
+
+type RequestMethods = 'get' | 'post' | 'put' | 'delete';
+
+export const requestHandler = async <T>(request: RequestMethods, url: string, payload?: T) => {
+    let response;
+
+    switch (request) {
+        case 'get':
+            response = await httpClient.get(url);
+            break;
+        case 'post':
+            response = await httpClient.post(url, payload);
+            break;
+        case 'put':
+            response = await httpClient.put(url, payload);
+            break;
+        case 'delete':
+            response = await httpClient.delete(url);
+            break;
+        default:
+            throw new Error('Invalid request method');
+    }
+
+    return response.data;
+};

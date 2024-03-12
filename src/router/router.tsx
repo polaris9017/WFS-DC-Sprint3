@@ -11,38 +11,22 @@ import Cart from "../pages/Cart";
 import Order from "../pages/Order";
 import OrderList from "../pages/OrderList";
 
-export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Layout><Home/></Layout>,
-        errorElement: <Layout><Error/></Layout>
-    }, {
-        path: "/books",
-        element: <Layout><Books/></Layout>
-    }, {
-        path: "/signup",
-        element: <Layout><Signup/></Layout>
-    }, {
-        path: "/reset-password",
-        element: <Layout><ResetPassword/></Layout>
-    }, {
-        path: "/signin",
-        element: <Layout><Login/></Layout>
-    },
-    {
-        path: "/book/:bookId",
-        element: <Layout><BookDetail/></Layout>
-    },
-    {
-        path: "/cart",
-        element: <Layout><Cart/></Layout>
-    },
-    {
-        path: "/order",
-        element: <Layout><Order/></Layout>
-    },
-    {
-        path: "/order/list",
-        element: <Layout><OrderList/></Layout>
-    }
-]);
+const routeList = [
+    {path: "/", element: <Home/>},
+    {path: "/books", element: <Books/>},
+    {path: "/signup", element: <Signup/>},
+    {path: "/reset-password", element: <ResetPassword/>},
+    {path: "/signin", element: <Login/>},
+    {path: "/book/:bookId", element: <BookDetail/>},
+    {path: "/cart", element: <Cart/>},
+    {path: "/order", element: <Order/>},
+    {path: "/order/list", element: <OrderList/>}
+].map((it) => {
+    return {
+        ...it,
+        element: <Layout>{it.element}</Layout>,
+        errorElement: <Error/>
+    };
+});
+
+export const router = createBrowserRouter(routeList);
